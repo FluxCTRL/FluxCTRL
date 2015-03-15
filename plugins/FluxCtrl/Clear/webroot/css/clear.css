@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+body {
+    color: #111111;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 21px;
+    line-height: 1.3125rem;
+}
+
+a {
+    color: #0074D9;
+}
+
+nav > ul {
+    list-style: none;
+}
+
+/* Container */
+body > header,
+body > main,
+body > footer {
+    width: 700px;
+    margin: 0 auto;
+}
+
+/* Clearfix */
+body > header,
+body > main > header,
+body > main > section > article > footer {
+    overflow: auto;
+}
+
+/* Floating */
+body > header > div {
+    float: left;
+}
+body > header > nav,
+body > main > header > nav {
+    float: right;
+}
+
+/* Whitespace */
+body > header {
+    margin: 5px auto 20px;
+}
+nav > ul > li {
+    padding: 0 5px;
+}
+body > main > header > nav > ul > li {
+    padding: 0 2px;
+}
+body > main > header {
+    margin-bottom: 5px;
+}
+body > main > header > h2 {
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+}
+
+/* Re-sizing */
+body > footer,
+body > main > section > article > footer {
+    font-size: 0.8rem;
+}
+
+/* Styling */
+nav > ul > li {
+    display: inline;
+}
+nav > ul > li.current > a {
+    color: #111111;
+    text-decoration: none;
+}
+body > main > header > h2 {
+    border-bottom: 1px dotted #DDDDDD;
+}
+body > main > header > nav {
+    font-size: .85rem;
+}
+body > main > section > article > footer > nav > ul > li {
+    border-left: solid 1px #333333;
+}
+body > main > section > article > footer> nav > ul > li:first-child {
+    border-left: none;
+}
+body > main > section > article > footer > nav > ul > li,
+body > main > section > article > footer > nav > ul > li > a {
+    color: #AAAAAA;
+    text-decoration: none;
+}
+body > main > section > article > footer > nav > ul > li > a:hover {
+    color: #0074D9;
+    text-decoration: underline;
+}
+body > footer {
+    text-align: right;
+}
+body > footer,
+body > footer > a {
+    color: #AAAAAA;
+}
+
+
+
+article {
+    border: 1px solid #EEEEEE;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+article header {
+    font-weight: bold;
+}
+
+section article {
+
+}
+nav {
+    text-transform: lowercase;
+}
+main article {
+
+}
+
+/* Hacks */
+body > main > section > article > summary img {
+    margin: 10px 0;
+    display: block;
+    max-width: 100%;
+}

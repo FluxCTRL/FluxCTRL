@@ -1,0 +1,373 @@
+#%RAML 0.8
+#https://anypoint.mulesoft.com/apiplatform/cakephp/admin/#/dashboard/apis/14710/versions/15505/designer
+title: FluxCTRL
+version: 0.1
+baseUri: http://localhost/api/{version}
+protocols: [ HTTPS ]
+mediaType: application/json
+
+/feeds:
+  displayName: Feeds
+  get:
+    description: Get a list of feeds
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "feeds": [
+                  {
+                    "id": "1A0iEVP",
+                    "title": "The Oatmeal",
+                    "uri": "http://feeds.feedburner.com/oatmealfeed",
+                    "website": "http://theoatmeal.com",
+                    "is_active": true,
+                    "checked": "2015-03-01T00:00:00.000Z"
+                  },
+                  {
+                    "id": "YBhip",
+                    "title": "xkcd",
+                    "uri": "http://xkcd.com/rss.xml",
+                    "website": "http://xkcd.com",
+                    "is_active": true,
+                    "checked": "2015-03-01T00:00:00.000Z"
+                  }
+                ],
+                "success": true
+              }
+  post:
+    description: Create a new feed
+    body:
+      application/x-www-form-urlencoded:
+        formParameters: 
+          title:
+            displayName: Title
+            type: string
+            description: A feed's title
+            example: The Oatmeal
+            required: true
+          uri:
+            displayName: URI
+            type: string
+            description: A feed's endpoint
+            example: http://feeds.feedburner.com/oatmealfeed
+            required: true
+          website:
+            displayName: Website
+            type: string
+            description: A feed's website
+            example: http://theoatmeal.com
+            required: true
+          is_active:
+            displayName: Status
+            type: boolean
+            description: A feed's status
+            example: true
+            required: false
+    responses:
+      200:
+        description: Everything worked as expected
+        body:
+          application/json:
+            example: |
+              {
+                "feed": {
+                  "id": "1A0iEVP",
+                  "title": "The Oatmeal",
+                  "uri": "http://feeds.feedburner.com/oatmealfeed",
+                  "website": "http://theoatmeal.com",
+                  "is_active": true,
+                  "checked": "2015-03-01T00:00:00.000Z"
+                }
+              }
+      400:
+        description: Invalid request parameters
+        body:
+          application/json:
+            example: |
+              {
+                "success": false
+              }        
+  /{id}:
+    uriParameters:
+      id:
+        description: Specific feed ID
+        type: string
+        pattern: ^[a-zA-Z0-9]+$
+    put:
+      description: Update a specific feed
+      body:
+        application/x-www-form-urlencoded:
+          formParameters:
+            title:
+              displayName: Title
+              type: string
+              description: A feed's title
+              example: The Oatmeal Comics
+              required: false
+            uri:
+              displayName: URI
+              type: string
+              description: A feed's endpoint
+              example: http://feeds.feedburner.com/oatmealfeed
+              required: false
+            website:
+              displayName: Website
+              type: string
+              description: A feed's website
+              example: http://theoatmeal.com
+              required: false
+            is_active:
+              displayName: Status
+              type: boolean
+              description: A feed's status
+              example: true
+              required: false
+      responses:
+        200:
+          description: Everything worked as expected
+          body:
+            application/json:
+              example: |
+                {
+                  "feed": {
+                    "id": "1A0iEVP",
+                    "title": "The Oatmeal Comics",
+                    "uri": "http://feeds.feedburner.com/oatmealfeed",
+                    "website": "http://theoatmeal.com",
+                    "is_active": true,
+                    "checked": "2015-03-01T00:00:00.000Z"
+                  }
+                }
+        400:
+          description: Invalid request parameters
+          body:
+            application/json:
+              example: |
+                {
+                  "success": false
+                }        
+        404:
+          description: Feed does not exist
+          body:
+            application/json:
+              example: |
+                {
+                  "success": false
+                }
+    delete:
+      description: Delete a specific feed
+      responses:
+        200:
+          description: Everything worked as expected
+          body:
+            application/json:
+              example: |
+                {
+                  "success": true
+                }
+        404:
+          description: Feed does not exist
+          body:
+            application/json:
+              example: |
+                {
+                  "success": false
+                }
+/{id}/items:
+  uriParameters:
+    id:
+      description: Specific feed ID
+      type: string
+      pattern: ^[a-zA-Z0-9]+$
+  get:
+    description: Get a list of items for a specific feed
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+      404:
+        body:
+          application/json:
+            example:
+  post:
+    description: Create new item
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          uri:
+            displayName: URI
+            type: string
+            example: http://theoatmeal.com/blog/jibbers_crabst
+            required: true
+          content:
+            displayName: Content
+            type: string
+            example: |
+              {
+                "title": "I do not believe in Charles Darwin's theory of natural selection",
+                "body": "<p>I gave a talk at <a href=\"https://www.youtube.com/watch?v=ZZ_BtZ-5O60\">BAHFest 2014</a> where I presented an alternate theory. Praise Jibbers.</p>",
+              }
+            required: true
+          published:
+            displayName: Publication date
+            type: date
+            example: 2015-03-01
+            required: true
+    responses:
+      200:
+        description: Everything worked as expected
+        body:
+          application/json:
+            example: |
+              {
+                "feed": {
+                  "id": 1
+                }
+              }
+      400:
+        description: Invalid request parameters
+        body:
+          application/json:
+            example: |
+              {
+                "success": false
+              }
+      404:
+        description: Feed does not exist
+        body:
+          application/json:
+            example: |
+              {
+                "success": false
+              }
+/items:
+  displayName: Items
+  get:
+    description: Retrieve all items by status and publication date
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "items": [
+                  {
+                    "id": "9UaR",
+                    "feed_id": "1A0iEVP",
+                    "uri": "http://theoatmeal.com/blog/jibbers_crabst",
+                    "content": "{\"body\":\"<p>I gave a talk at <a href=\\\\\\\"https:\\\/\\\/www.youtube.com\\\/watch?v=ZZ_BtZ-5O60\\\\\\\">BAHFest 2014<\\\/a> where I presented an alternate theory. Praise Jibbers.<\\\/p>\"}"}",
+                    "is_read": false,
+                    "published": "2015-03-01"
+                  },
+                  {
+                    "id": "Yd7FD",
+                    "feed_id": "1A0iEVP",
+                    "uri": "http://theoatmeal.com/comics/email_monster",
+                    "content": "",
+                    "is_read": false,
+                    "published": "2015-02-25"
+                  }
+                ]
+              }    
+  /{id}:
+    uriParameters:
+      id:
+        description: Specific item ID
+        type: string
+        pattern: ^[a-zA-Z0-9]+$
+    get:
+      description: Retrieve a specific item
+      responses:
+        200:
+          description: Everything worked as expected
+          body:
+            application/json:
+              example: |
+                {
+                  "item": {
+                    "id": "9UaR",
+                    "feed_id": "1A0iEVP",
+                    "uri": "http://theoatmeal.com/blog/jibbers_crabst",
+                    "content": "<p>I gave a talk at <a href=\"https://www.youtube.com/watch?v=ZZ_BtZ-5O60\">BAHFest 2014</a> where I presented an alternate theory. Praise Jibbers.</p>",
+                    "is_read": false,
+                    "published": "2015-03-01"
+                  },
+                  "feed": {
+                    "id": "1A0iEVP",
+                    "title": "The Oatmeal",
+                    "uri": "http://feeds.feedburner.com/oatmealfeed",
+                    "website": "http://theoatmeal.com",
+                    "is_active": true,
+                    "checked": "2015-03-01"
+                  },
+                  "success": true
+                }
+        404:
+          description: Item does not exist
+          body:
+            application/json:
+              example: |
+                {
+                  "success": false
+                }          
+    put:
+      description: Update a specific item
+      body:
+        application/x-www-form-urlencoded:
+          formParameters:
+            is_read:
+              displayName: Status
+              type: boolean
+              example: true
+              required: true
+      responses:
+        200:
+          description: Everything worked as expected
+          body:
+            application/json:
+              example: |
+                {
+                  "feed": {
+                    "id": "9UaR",
+                    "is_read": true
+                  },
+                  "success": true
+                }
+        400:
+          description: Invalid query parameters
+          body:
+            application/json:
+              example: |
+                {
+                  "success": false
+                }
+        404:
+          description: Item does not exist
+          body:
+            application/json:
+              example: |
+                {
+                  "success": false
+                }
+    delete:
+      description: Delete a specific item
+      responses:
+        200:
+          description: Everything worked as expected
+          body:
+            application/json:
+              example: |
+                {
+                  "success": true
+                }
+        404:
+          description: Item does not exist
+          body:
+            application/json:
+              example: |
+                {
+                  "success": false
+                }
