@@ -20,10 +20,6 @@
         "cakephp/bake": "dev-master",
         "cakephp/codeception": "dev-master"
     },
-    "suggest": {
-        "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
-        "cakephp/cakephp-codesniffer": "Allows to check the code against the coding standards used in CakePHP."
-    },
     "autoload": {
         "psr-4": {
             "FluxCtrl\\": "src",

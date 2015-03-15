@@ -2,5 +2,4 @@ class_name: ApiTester
 modules:
     enabled:
       - Cake\Codeception\Helper
-      - FluxCtrl\TestSuite\Codeception\ApiHelper
       - REST
