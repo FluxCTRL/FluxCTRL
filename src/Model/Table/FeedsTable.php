@@ -47,13 +47,24 @@ class FeedsTable extends Table
      */
     public function aggregate(Feed $feed, $autoSave = true)
     {
-        $feedClass = '\FluxCtrl\Model\Feed\\' . $feed->type;
-        $feed = (new $feedClass)->aggregate($feed);
+        $feed = $this->getFeeder($feed->type)->aggregate($feed);
 
         if ($autoSave) {
             $this->save($feed);
         }
 
         return $feed;
+    }
+
+    /**
+     * Gets the right feed source by type.
+     *
+     * @param string $type Type of feed (for now, only 'Feed').
+     * @return \FluxCtrl\Datasource\FeedInterface Feed data source.
+     */
+    public function getFeeder($type)
+    {
+        $feedClass = '\FluxCtrl\Model\Feed\\' . $type;
+        return new $feedClass;
     }
 }
