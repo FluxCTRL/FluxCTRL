@@ -36,6 +36,14 @@ cd $_
 composer install --prefer-dist
 ```
 
+I aim to have full unit, functional and acceptance test coverage using [Codepcetion]
+[codeception]. To run the test suite:
+
+```
+vendor/bin/codecept build (only the 1st time)
+vendor/bin/codecept run
+```
+
 ## Roadmap
 
 **0.1**
@@ -62,4 +70,5 @@ FluxCTRL is licensed under the MIT license. See [LICENSE](LICENSE) for more
 information.
 
 [aggregator]:http://en.wikipedia.org/wiki/News_aggregator
+[codeception]:http://codeception.com
 
