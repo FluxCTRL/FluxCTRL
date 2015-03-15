@@ -38,6 +38,13 @@ class FeedsTable extends Table
         }
     }
 
+    /**
+     * Aggregates feed.
+     *
+     * @param \FluxCtrl\Model\Entity\Feed $feed Feed.
+     * @param bool $autoSave True to save before returning results.
+     * @return \FluxCtrl\Model\Entity\Feed Dirty feed entity with aggregated content.
+     */
     public function aggregate(Feed $feed, $autoSave = true)
     {
         $feedClass = '\FluxCtrl\Model\Feed\\' . $feed->type;
@@ -48,14 +55,5 @@ class FeedsTable extends Table
         }
 
         return $feed;
-    }
-
-    public function collect(Query $query)
-    {
-        $items = [];
-        foreach ($query as $feed) {
-            $items[$feed->id] = $this->aggregate($feed)->items;
-        }
-        return $items;
     }
 }

@@ -11,10 +11,7 @@ class ItemsTable extends Table
 {
 
     /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
+     * {@inheritdoc}
      */
     public function initialize(array $config)
     {
@@ -33,6 +30,13 @@ class ItemsTable extends Table
         ]);
     }
 
+    /**
+     * Finds unread items.
+     *
+     * @param \Cake\ORM\Query $query Query.
+     * @param array $options Options.
+     * @return \Cake\ORM\Query Modified query.
+     */
     public function findUnread(Query $query, array $options)
     {
         $query->where([

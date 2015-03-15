@@ -13,20 +13,16 @@ class Item extends Entity
     use RtlTrait;
 
     /**
-     * Fields that can be mass assigned using newEntity() or patchEntity().
-     *
-     * @var array
+     * {@inheritdoc}
      */
     protected $_accessible = [
         '*' => false,
     ];
 
+    /**
+     * {@inheritdoc}
+     */
     protected $_hidden = [
         'aggregated'
     ];
-
-    protected function _getIsRtl()
-    {
-        return Parser::isLanguageRTL($this->lang);
-    }
 }

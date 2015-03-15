@@ -13,9 +13,7 @@ class Feed extends Entity
     use RtlTrait;
 
     /**
-     * Fields that can be mass assigned using newEntity() or patchEntity().
-     *
-     * @var array
+     * {@inheritdoc}
      */
     protected $_accessible = [
         'url' => true,
@@ -24,6 +22,14 @@ class Feed extends Entity
         'items' => true,
     ];
 
+    /**
+     * Tells the type of feed.
+     *
+     * For now, and until the other feed formats are implemented,
+     * it only returns 'Feed'.
+     *
+     * @return string The feed's type.
+     */
     protected function _getType()
     {
         return 'Feed';

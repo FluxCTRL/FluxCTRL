@@ -8,6 +8,9 @@ class CrudController extends AppController
 {
     use ControllerTrait;
 
+    /**
+     * {@inheritdoc}
+     */
     public function initialize()
     {
         parent::initialize();
