@@ -47,7 +47,7 @@ class FeedsTable extends Table
      */
     public function aggregate(Feed $feed, $autoSave = true)
     {
-        $feed = $this->getFeeder($feed->type)->aggregate($feed);
+        $feed = $this->getHose($feed->type)->aggregate($feed);
 
         if ($autoSave) {
             $this->save($feed);
@@ -59,12 +59,12 @@ class FeedsTable extends Table
     /**
      * Gets the right feed source by type.
      *
-     * @param string $type Type of feed (for now, only 'Feed').
-     * @return \FluxCtrl\Datasource\FeedInterface Feed data source.
+     * @param string $hose Feed's hose (for now, only 'Pico').
+     * @return \FluxCtrl\Datasource\HoseInterface Feed hose object.
      */
-    public function getFeeder($type)
+    public function getHose($hose)
     {
-        $feedClass = '\FluxCtrl\Model\Feed\\' . $type;
+        $feedClass = '\FluxCtrl\Model\Hose\\' . $hose . 'Hose';
         return new $feedClass;
     }
 }

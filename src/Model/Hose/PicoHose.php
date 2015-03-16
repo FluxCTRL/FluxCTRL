@@ -1,17 +1,17 @@
 <?php
-namespace FluxCtrl\Model\Feed;
+namespace FluxCtrl\Model\Hose;
 
 use Cake\Collection\Collection;
 use Cake\ORM\TableRegistry;
-use FluxCtrl\Datasource\FeedInterface;
-use FluxCtrl\Model\Entity\Feed as FeedEntity;
+use FluxCtrl\Datasource\HoseInterface;
+use FluxCtrl\Model\Entity\Feed;
 use PicoFeed\Parser\Item;
 use PicoFeed\PicoFeedException;
 use PicoFeed\Reader\Reader;
 
-class Feed implements FeedInterface
+class PicoHose implements HoseInterface
 {
-    public function aggregate(FeedEntity $feed)
+    public function aggregate(Feed $feed)
     {
         $raw = $this->getFeedParser($feed)->execute();
         $items = (new Collection($raw->getItems()))
@@ -40,7 +40,7 @@ class Feed implements FeedInterface
         return TableRegistry::get('Feeds')->patchEntity($feed, $data, $options);
     }
 
-    public function getFeedParser(FeedEntity $feed)
+    public function getFeedParser(Feed $feed)
     {
         try {
             $reader = new Reader();

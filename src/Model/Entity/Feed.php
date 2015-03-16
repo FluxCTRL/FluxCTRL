@@ -25,13 +25,13 @@ class Feed extends Entity
     /**
      * Tells the type of feed.
      *
-     * For now, and until the other feed formats are implemented,
-     * it only returns 'Feed'.
+     * For now, and until the other feed hoses are implemented,
+     * it only returns 'Pico'.
      *
      * @return string The feed's type.
      */
     protected function _getType()
     {
-        return 'Feed';
+        return 'Pico';
     }
 }

@@ -3,7 +3,7 @@ namespace FluxCtrl\Datasource;
 
 use FluxCtrl\Model\Entity\Feed;
 
-interface FeedInterface
+interface HoseInterface
 {
     /**
      * Feed aggregator.
