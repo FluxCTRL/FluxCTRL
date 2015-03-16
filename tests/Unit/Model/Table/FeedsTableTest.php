@@ -47,7 +47,7 @@ class FeedsTableTest extends TestCase
 
         $hose->expects($this->once())
             ->method('aggregate')
-            ->with($feed)
+            ->with()
             ->will($this->returnValue($feed));
 
         $feeds->aggregate($feed);
