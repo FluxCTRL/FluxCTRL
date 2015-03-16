@@ -6,10 +6,17 @@ use FluxCtrl\Model\Entity\Feed;
 interface HoseInterface
 {
     /**
+     * Constructor.
+     *
+     * @param \FluxCtrl\Model\Entity\Feed $feed Feed entity.
+     * @return void
+     */
+    public function __construct(Feed $feed);
+
+    /**
      * Feed aggregator.
      *
-     * @param array $options Options.
-     * @return array Of `Item` entities.
+     * @return \FluxCtrl\Model\Entity\Feed Updated feed entity.
      */
-    public function aggregate(Feed $feed);
+    public function aggregate();
 }

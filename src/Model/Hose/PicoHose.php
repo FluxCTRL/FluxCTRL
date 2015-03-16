@@ -11,9 +11,17 @@ use PicoFeed\Reader\Reader;
 
 class PicoHose implements HoseInterface
 {
-    public function aggregate(Feed $feed)
+    protected $_Feed;
+
+    public function __construct(Feed $feed)
     {
-        $raw = $this->getFeedParser($feed)->execute();
+        $this->_Feed = $feed;
+    }
+
+    public function aggregate()
+    {
+        $feed = $this->_Feed;
+        $raw = $this->getFeedParser()->execute();
         $items = (new Collection($raw->getItems()))
             ->map(function ($item) {
                 return $this->toFluxCtrlItem($item)
@@ -40,14 +48,14 @@ class PicoHose implements HoseInterface
         return TableRegistry::get('Feeds')->patchEntity($feed, $data, $options);
     }
 
-    public function getFeedParser(Feed $feed)
+    public function getFeedParser()
     {
         try {
             $reader = new Reader();
             $resource = $reader->download(
-                $feed->url,
-                $feed->checked,
-                $feed->etag
+                $this->_Feed->url,
+                $this->_Feed->checked,
+                $this->_Feed->etag
             );
 
             $parser = $reader->getParser(

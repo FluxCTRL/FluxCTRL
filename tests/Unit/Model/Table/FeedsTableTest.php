@@ -33,13 +33,12 @@ class FeedsTableTest extends TestCase
 
     public function testAggregate()
     {
-        $feed = new Feed();
+        $feed = $this->getMock('FluxCtrl\Model\Entity\Feed', ['_getHose']);
         $feeds = $this->getMockForModel('Feeds', ['getHose', 'save']);
-        $hose = $this->getMock('FluxCtrl\Model\Hose\PicoHose', ['aggregate']);
+        $hose = $this->getMock('FluxCtrl\Model\Hose\PicoHose', ['aggregate'], [$feed]);
 
-        $feeds->expects($this->once())
-            ->method('getHose')
-            ->with('Pico')
+        $feed->expects($this->once())
+            ->method('_getHose')
             ->will($this->returnValue($hose));
 
         $feeds->expects($this->once())
@@ -52,13 +51,5 @@ class FeedsTableTest extends TestCase
             ->will($this->returnValue($feed));
 
         $feeds->aggregate($feed);
-    }
-
-    public function testGetHose()
-    {
-        $feeds = TableRegistry::get('Feeds');
-
-        $result = $feeds->getHose('Pico');
-        $this->assertInstanceOf('FluxCtrl\Model\Hose\PicoHose', $result);
     }
 }

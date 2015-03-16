@@ -23,6 +23,17 @@ class Feed extends Entity
     ];
 
     /**
+     * Gets the right feed source by type.
+     *
+     * @return \FluxCtrl\Datasource\HoseInterface Feed hose object.
+     */
+    protected function _getHose()
+    {
+        $hose = '\FluxCtrl\Model\Hose\\' . $this->type . 'Hose';
+        return new $hose($this);
+    }
+
+    /**
      * Tells the type of feed.
      *
      * For now, and until the other feed hoses are implemented,
