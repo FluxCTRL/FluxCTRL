@@ -24,3 +24,5 @@ switch($this->request->param('controller')) {
 }
 
 echo $this->Menu->render('subnavigation');
+unset($menu);
+
