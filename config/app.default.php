@@ -18,7 +18,7 @@ return [
      * - theme - The theme to use, without a theme, it's just an API (no built-in views).
      */
      'Flux' => [
-        'title' => 'Flux Control',
+        'title' => 'FluxCTRL',
         'theme' => 'FluxCtrl/Clear',
     ],
 
