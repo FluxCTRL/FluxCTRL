@@ -22,4 +22,14 @@ class ItemsController extends CrudController
             $this->request->data['feed_id'] = $this->request->param('id');
         }
     }
+
+    public function index()
+    {
+        $this->Crud->on('beforePaginate', function (Event $event) {
+            $event->subject()->object = $this->Items->find('unread')
+                ->contain('Feeds')
+                ->where(['feed_id' => $this->request->param('id')]);
+        });
+        $this->Crud->execute();
+    }
 }

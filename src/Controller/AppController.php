@@ -13,6 +13,7 @@ class AppController extends Controller
     public function initialize()
     {
         $this->_setupListeners();
+        $this->_setupPaginator();
         $this->_setupRequestHandler();
     }
 
@@ -26,6 +27,19 @@ class AppController extends Controller
     protected function _setupListeners()
     {
         Flux::attachListeners($this->eventManager());
+    }
+
+    /**
+     * Sets up the PaginatorComponent.
+     *
+     * @return void
+     */
+    protected function _setupPaginator()
+    {
+        $this->loadComponent('Paginator', [
+            'limit' => 10,
+            'maxLimit' => 100,
+        ]);
     }
 
     /**

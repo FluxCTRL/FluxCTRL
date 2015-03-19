@@ -3,6 +3,15 @@ namespace FluxCtrl\Controller;
 
 class FeedsController extends CrudController
 {
+    /**
+     * {@inheritdoc}
+     */
+    public $paginate = [
+        'sortWhitelist' => [
+            'checked',
+            'title',
+        ],
+    ];
 
     /**
      * {@inheritdoc}
