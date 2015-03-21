@@ -1,3 +1,5 @@
+<?php $this->Html->addCrumb(__d('flux_ctrl', "Subscriptions")) ?>
+
 <section>
     <?php foreach ($feeds as $feed) : ?>
     <article>
@@ -5,8 +7,15 @@
         <summary>
             <p><?= h($feed->description) ?></p>
         </summary>
-        <footer>
-            <nav>
+        <footer class="u-clearfix"><small>
+            <?php
+            echo $this->Html->tag('span', __d(
+                'flux_ctrl',
+                "Last checked on {0}",
+                $feed->checked->format('Y-m-d')
+            ), ['class' => 'u-text-maroon']);
+            ?>
+            <nav class="u-pull-right">
                 <ul>
                     <li>
                         <?php
@@ -27,15 +36,10 @@
                     </li>
                 </ul>
             </nav>
-        </footer>
+        </small></footer>
     </article>
     <?php endforeach; ?>
 </section>
-<div class="paginator">
-    <ul class="pagination">
-        <?= $this->Paginator->prev('< ' . __('previous')) ?>
-        <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__('next') . ' >') ?>
-    </ul>
-    <p><?= $this->Paginator->counter() ?></p>
-</div>
+
+<?= $this->element('paginator') ?>
+

@@ -1,37 +1,31 @@
-<section>
+<section class="feed">
     <?php foreach ($items as $item) : ?>
     <article>
-        <header>
-            <strong><?= $item->title ?></strong>
-        </header>
+        <?= $this->Html->tag('h3', $item->title) ?>
         <summary>
-            <p>
-                <?php
-                echo $this->Text->truncate(strip_tags($item->content), 300, [
-                    'ellipsis' => ' [...]',
-                    'exact' => false,
-                    'html' => true,
-                ]);
-                ?>
-            </p>
+            <?php
+            echo $this->Text->truncate(strip_tags($item->content), 300, [
+                'ellipsis' => ' [...]',
+                'exact' => false,
+                'html' => true,
+            ]);
+            ?>
         </summary>
-        <footer>
-            <nav>
+        <footer class="u-clearfix"><small>
+            <?php
+            echo $this->Html->div(
+                'u-pull-left',
+                __d('flux_ctrl', "On {0}, {1}", [
+                    $item->feed->title,
+                    $this->Time->timeAgoInWords($item->published, [
+                        'accuracy' => ['year' => 'month', 'month' => 'month'],
+                        'end' => '+2 years'
+                    ])
+                ])
+            );
+            ?>
+            <nav class="u-pull-right">
                 <ul>
-                    <li>
-                        <?= $item->feed->title ?>
-                    </li>
-                    <li>
-                        <?php
-                        echo $this->Time->timeAgoInWords($item->published, [
-                            'accuracy' => [
-                                'year' => 'month',
-                                'month' => 'month',
-                            ],
-                            'end' => '+2 years',
-                        ]);
-                        ?>
-                    </li>
                     <li>
                         <?= $this->Html->link(__d('flux_ctrl', "Original link"), $item->url) ?>
                     </li>
@@ -47,7 +41,7 @@
                     </li>
                 </ul>
             </nav>
-        </footer>
+        </small></footer>
     </article>
     <?php endforeach ?>
 </section>

@@ -11,7 +11,7 @@ class ItemsController extends AppController
      *
      * @return void
      */
-    public function index()
+    public function indexa()
     {
 
     }

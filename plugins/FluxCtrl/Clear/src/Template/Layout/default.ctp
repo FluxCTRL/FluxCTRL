@@ -8,37 +8,56 @@
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('reset') ?>
-    <?= $this->Html->css('clear') ?>
+    <?= $this->Html->css(['reset', 'clear']) ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
 </head>
 
 <body>
 
-    <header>
-        <div>
-            <span><?= $this->fetch('title') ?></span>
-        </div>
-        <?= $this->fetch('navigation', sprintf('<nav>%s</nav>', $this->element('navigation'))) ?>
+    <header class="u-clearfix">
+        <?php
+        echo $this->Html->tag(
+            'h1',
+            $this->Html->link($this->fetch('title'), ['_name' => 'home']),
+            ['class' => 'u-pull-left']
+        );
+        echo $this->fetch(
+            'navigation',
+            $this->Html->tag('nav', $this->element('navigation'), ['class' => 'u-pull-right'])
+        );
+        ?>
     </header>
 
     <main>
-        <header>
-            <?= $this->fetch('subtitle', sprintf('<h2>%s</h2>', $fc_subtitle)) ?>
-            <?= $this->fetch('subnavigation', sprintf('<nav>%s</nav>', $this->element('subnavigation'))) ?>
-        </header>
+        <header class="u-clearfix"><small>
+            <?php
+            echo $this->fetch('breadcrumbs', $this->Html->tag(
+                'nav',
+                $this->Html->getCrumbs(' > ', __d('flux_ctrl', "Home"), false)
+            ));
+            echo $this->Html->tag('hr');
+            echo $this->fetch('subnavigation', $this->Html->tag(
+                'nav',
+                $this->element('subnavigation'),
+                ['class' => 'u-pull-right']
+            ));
+            ?>
+        </small></header>
         <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>
     </main>
 
-    <footer>
+    <footer class="u-clearfix">
         <?php
-        echo $this->fetch('footer', __d(
-            'flux_ctrl',
-            "Powered by {0}",
-            $this->Html->link('FluxCtrl', 'http://fluxctrl.io')
-        ));
+        echo $this->fetch(
+            'footer',
+            $this->Html->tag('small', __d(
+                'flux_ctrl',
+                "Powered by {0}",
+                $this->Html->link('FluxCTRL', 'http://fluxctrl.io')
+            ), ['class' => 'u-pull-right'])
+        );
         ?>
     </footer>
 
