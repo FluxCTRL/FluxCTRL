@@ -19,7 +19,8 @@
         "cakephp/debug_kit": "3.0.*-dev",
         "cakephp/bake": "dev-master",
         "cakephp/codeception": "dev-master",
-        "gourmet/muffin": "dev-master"
+        "gourmet/muffin": "dev-master",
+        "flow/jsonpath": "~0.2.4"
     },
     "autoload": {
         "psr-4": {

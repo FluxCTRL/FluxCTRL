@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a0c9fbe59b2f5bdcfb4852afe8e7de2f",
+    "hash": "51a3edec5a43b763130614dd2681d7c6",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -1298,6 +1298,44 @@
             "time": "2014-11-05 20:53:09"
         },
         {
+            "name": "flow/jsonpath",
+            "version": "0.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FlowCommunications/JSONPath.git",
+                "reference": "c0ca6a388ff3b1da784de059b948fa5874c26050"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FlowCommunications/JSONPath/zipball/c0ca6a388ff3b1da784de059b948fa5874c26050",
+                "reference": "c0ca6a388ff3b1da784de059b948fa5874c26050",
+                "shasum": ""
+            },
+            "require-dev": {
+                "peekmo/jsonpath": "dev-master",
+                "phpunit/phpunit": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Flow\\JSONPath": "src/",
+                    "Flow\\JSONPath\\Test": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Frank",
+                    "email": "stephen@flowsa.com"
+                }
+            ],
+            "description": "JSONPath implementation for parsing, searching and flattening arrays",
+            "time": "2015-02-26 07:26:33"
+        },
+        {
             "name": "fzaninotto/faker",
             "version": "v1.4.0",
             "source": {
@@ -1351,12 +1389,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gourmet/muffin.git",
-                "reference": "452efa53ea40565004923ba4283060e5fbc1698c"
+                "reference": "31b7b04468387f1fc72746e93b0fe353d0e18066"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gourmet/muffin/zipball/452efa53ea40565004923ba4283060e5fbc1698c",
-                "reference": "452efa53ea40565004923ba4283060e5fbc1698c",
+                "url": "https://api.github.com/repos/gourmet/muffin/zipball/31b7b04468387f1fc72746e93b0fe353d0e18066",
+                "reference": "31b7b04468387f1fc72746e93b0fe353d0e18066",
                 "shasum": ""
             },
             "require": {
@@ -1394,7 +1432,7 @@
                 "factory muffin",
                 "gourmet"
             ],
-            "time": "2015-03-19 15:26:37"
+            "time": "2015-03-20 01:09:52"
         },
         {
             "name": "gourmet/rest",
