@@ -11,11 +11,13 @@ Router::scope('/api', function ($routes) {
 
     $routes->extensions('json');
 
-    $routes->resources('Feeds', ['id' => Flux::ID, 'only' => ['index', 'add', 'edit', 'delete']]);
-    $routes->resources('Items', ['id' => Flux::ID, 'only' => ['index', 'delete', 'view']]);
+    $routes->resources('Feeds', ['id' => Flux::ID, 'only' => ['index', 'create']]);
+    $routes->resources('Items', ['id' => Flux::ID, 'only' => ['index', 'update', 'delete', 'view']]);
 
-    $routes->connect('/:id/items', $feedItems + ['action' => 'index', '_method' => 'GET'], $options);
-    $routes->connect('/:id/items', $feedItems + ['action' => 'add', '_method' => 'POST'], $options);
+    $routes->connect('/:id', ['controller' => 'Feeds', 'action' => 'edit', '_method' => 'PUT'], $options);
+    $routes->connect('/:id', ['controller' => 'Feeds', 'action' => 'delete', '_method' => 'DELETE'], $options);
+    $routes->connect('/:id', $feedItems + ['action' => 'index', '_method' => 'GET'], $options);
+    $routes->connect('/:id', $feedItems + ['action' => 'add', '_method' => 'POST'], $options);
 });
 
 /**
