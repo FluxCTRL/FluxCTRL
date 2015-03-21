@@ -9,14 +9,14 @@ mediaType: application/json
 /feeds:
   displayName: Feeds
   get:
-    description: Get a list of feeds
+    description: List feeds
     responses:
       200:
         body:
           application/json:
             example: |
               {
-                "feeds": [
+                "data": [
                   {
                     "id": "1A0iEVP",
                     "title": "The Oatmeal",
@@ -37,17 +37,17 @@ mediaType: application/json
                 "success": true
               }
   post:
-    description: Create a new feed
+    description: Create feed
     body:
       application/x-www-form-urlencoded:
-        formParameters: 
+        formParameters:
           title:
             displayName: Title
             type: string
             description: A feed's title
             example: The Oatmeal
-            required: true
-          uri:
+            required: false
+          url:
             displayName: URI
             type: string
             description: A feed's endpoint
@@ -58,7 +58,7 @@ mediaType: application/json
             type: string
             description: A feed's website
             example: http://theoatmeal.com
-            required: true
+            required: false
           is_active:
             displayName: Status
             type: boolean
@@ -66,20 +66,16 @@ mediaType: application/json
             example: true
             required: false
     responses:
-      200:
+      201:
         description: Everything worked as expected
         body:
           application/json:
             example: |
               {
-                "feed": {
-                  "id": "1A0iEVP",
-                  "title": "The Oatmeal",
-                  "uri": "http://feeds.feedburner.com/oatmealfeed",
-                  "website": "http://theoatmeal.com",
-                  "is_active": true,
-                  "checked": "2015-03-01T00:00:00.000Z"
-                }
+                "data": {
+                  "id": "1A0iEVP"
+                },
+                "success": true
               }
       400:
         description: Invalid request parameters
@@ -88,13 +84,76 @@ mediaType: application/json
             example: |
               {
                 "success": false
-              }        
+              }
   /{id}:
     uriParameters:
       id:
         description: Specific feed ID
         type: string
         pattern: ^[a-zA-Z0-9]+$
+        required: true
+    get:
+        description: Get a list of items for a specific feed
+        responses:
+          200:
+            body:
+              application/json:
+                example:
+          404:
+            body:
+              application/json:
+                example:
+    post:
+        description: Create new item
+        body:
+          application/x-www-form-urlencoded:
+            formParameters:
+              uri:
+                displayName: URI
+                type: string
+                example: http://theoatmeal.com/blog/jibbers_crabst
+                required: true
+              content:
+                displayName: Content
+                type: string
+                example: |
+                  {
+                    "title": "I do not believe in Charles Darwin's theory of natural selection",
+                    "body": "<p>I gave a talk at <a href=\"https://www.youtube.com/watch?v=ZZ_BtZ-5O60\">BAHFest 2014</a> where I presented an alternate theory. Praise Jibbers.</p>",
+                  }
+                required: true
+              published:
+                displayName: Publication date
+                type: date
+                example: 2015-03-01
+                required: true
+        responses:
+          200:
+            description: Everything worked as expected
+            body:
+              application/json:
+                example: |
+                  {
+                    "feed": {
+                      "id": 1
+                    }
+                  }
+          400:
+            description: Invalid request parameters
+            body:
+              application/json:
+                example: |
+                  {
+                    "success": false
+                  }
+          404:
+            description: Feed does not exist
+            body:
+              application/json:
+                example: |
+                  {
+                    "success": false
+                  }
     put:
       description: Update a specific feed
       body:
@@ -147,7 +206,7 @@ mediaType: application/json
               example: |
                 {
                   "success": false
-                }        
+                }
         404:
           description: Feed does not exist
           body:
@@ -175,74 +234,6 @@ mediaType: application/json
                 {
                   "success": false
                 }
-/{id}/items:
-  uriParameters:
-    id:
-      description: Specific feed ID
-      type: string
-      pattern: ^[a-zA-Z0-9]+$
-  get:
-    description: Get a list of items for a specific feed
-    responses:
-      200:
-        body:
-          application/json:
-            example:
-      404:
-        body:
-          application/json:
-            example:
-  post:
-    description: Create new item
-    body:
-      application/x-www-form-urlencoded:
-        formParameters:
-          uri:
-            displayName: URI
-            type: string
-            example: http://theoatmeal.com/blog/jibbers_crabst
-            required: true
-          content:
-            displayName: Content
-            type: string
-            example: |
-              {
-                "title": "I do not believe in Charles Darwin's theory of natural selection",
-                "body": "<p>I gave a talk at <a href=\"https://www.youtube.com/watch?v=ZZ_BtZ-5O60\">BAHFest 2014</a> where I presented an alternate theory. Praise Jibbers.</p>",
-              }
-            required: true
-          published:
-            displayName: Publication date
-            type: date
-            example: 2015-03-01
-            required: true
-    responses:
-      200:
-        description: Everything worked as expected
-        body:
-          application/json:
-            example: |
-              {
-                "feed": {
-                  "id": 1
-                }
-              }
-      400:
-        description: Invalid request parameters
-        body:
-          application/json:
-            example: |
-              {
-                "success": false
-              }
-      404:
-        description: Feed does not exist
-        body:
-          application/json:
-            example: |
-              {
-                "success": false
-              }
 /items:
   displayName: Items
   get:
@@ -271,7 +262,7 @@ mediaType: application/json
                     "published": "2015-02-25"
                   }
                 ]
-              }    
+              }
   /{id}:
     uriParameters:
       id:
@@ -312,7 +303,7 @@ mediaType: application/json
               example: |
                 {
                   "success": false
-                }          
+                }
     put:
       description: Update a specific item
       body:
