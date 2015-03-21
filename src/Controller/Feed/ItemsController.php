@@ -28,7 +28,7 @@ class ItemsController extends CrudController
         $this->Crud->on('beforePaginate', function (Event $event) {
             $event->subject()->object = $this->Items->find('unread')
                 ->contain('Feeds')
-                ->where(['feed_id' => $this->request->param('id')]);
+                ->where([$this->Items->alias() . '.feed_id' => $this->request->param('id')]);
         });
         $this->Crud->execute();
     }
