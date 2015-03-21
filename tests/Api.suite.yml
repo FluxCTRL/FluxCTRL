@@ -3,3 +3,4 @@ modules:
     enabled:
       - Cake\Codeception\Helper
       - REST
+      - FluxCtrl\TestSuite\Codeception\ApiHelper
