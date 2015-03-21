@@ -14,5 +14,6 @@ class ItemFactory extends TestFactory
     public $lang = '';
     public $is_read = 'boolean';
     public $published = 'dateTimeBetween|-1 month';
-    public $aggregated = 'dateTimeBetween |-1 day';
+    public $aggregated = 'dateTimeBetween|-1 day';
+    public function useCallbacks() { return false; }
 }
