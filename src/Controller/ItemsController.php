@@ -15,7 +15,14 @@ class ItemsController extends CrudController
     protected function _setupCrud()
     {
         parent::_setupCrud();
-        $this->Crud->disable(['edit']);
+        $this->Crud->action('edit')->config('saveOptions', [
+            'fieldList' => [
+                'is_read',
+            ],
+            'accessibleFields' => [
+                'is_read' => true
+            ]
+        ]);
     }
 
     public function index()
