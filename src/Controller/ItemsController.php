@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Controller;
+namespace FluxCtrl\App\Controller;
 
 use Cake\Event\Event;
 

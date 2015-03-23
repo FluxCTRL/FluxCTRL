@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Model\Hose;
+namespace FluxCtrl\App\Model\Hose;
 
 class AtomHose extends PicoHose
 {

@@ -1,6 +1,7 @@
+namespace: FluxCtrl\App\Test\Api
 class_name: ApiTester
 modules:
     enabled:
       - Cake\Codeception\Helper
       - REST
-      - FluxCtrl\TestSuite\Codeception\ApiHelper
+      - FluxCtrl\App\TestSuite\Codeception\ApiHelper

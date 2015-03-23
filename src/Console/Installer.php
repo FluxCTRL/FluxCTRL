@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Console;
+namespace FluxCtrl\App\Console;
 
 use Composer\Script\Event;
 use Exception;

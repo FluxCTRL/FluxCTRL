@@ -1,7 +1,7 @@
 <?php
-namespace FluxCtrl\Datasource;
+namespace FluxCtrl\App\Datasource;
 
-use FluxCtrl\Model\Entity\Feed;
+use FluxCtrl\App\Model\Entity\Feed;
 
 interface HoseInterface
 {

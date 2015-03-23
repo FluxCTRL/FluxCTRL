@@ -1,8 +1,8 @@
 <?php
-namespace FluxCtrl\Controller;
+namespace FluxCtrl\App\Controller;
 
 use Crud\Controller\ControllerTrait;
-use FluxCtrl\Core\Flux;
+use FluxCtrl\App\Core\Flux;
 
 class CrudController extends AppController
 {

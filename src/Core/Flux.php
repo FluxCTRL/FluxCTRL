@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Core;
+namespace FluxCtrl\App\Core;
 
 use Cake\Cache\Cache;
 use Cake\Core\Configure;

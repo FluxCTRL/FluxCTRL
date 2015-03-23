@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Test\TestCase\Model\Table;
+namespace FluxCtrl\App\Test\TestCase\Model\Table;
 
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;

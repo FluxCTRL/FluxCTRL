@@ -1,11 +1,11 @@
 <?php
-namespace Model\Table;
+namespace FluxCtrl\App\Test\Unit\Model\Table;
 
 use ArrayObject;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use FluxCtrl\Model\Entity\Feed;
+use FluxCtrl\App\Model\Entity\Feed;
 
 class FeedsTableTest extends TestCase
 {
@@ -33,9 +33,9 @@ class FeedsTableTest extends TestCase
 
     public function testAggregate()
     {
-        $feed = $this->getMock('FluxCtrl\Model\Entity\Feed', ['_getHose']);
+        $feed = $this->getMock('FluxCtrl\App\Model\Entity\Feed', ['_getHose']);
         $feeds = $this->getMockForModel('Feeds', ['getHose', 'save']);
-        $hose = $this->getMock('FluxCtrl\Model\Hose\PicoHose', ['aggregate'], [$feed]);
+        $hose = $this->getMock('FluxCtrl\App\Model\Hose\PicoHose', ['aggregate'], [$feed]);
 
         $feed->expects($this->once())
             ->method('_getHose')

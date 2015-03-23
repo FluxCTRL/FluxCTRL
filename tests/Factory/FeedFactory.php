@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Test\Factory;
+namespace FluxCtrl\App\Test\Factory;
 
 use Gourmet\Muffin\TestSuite\TestFactory;
 

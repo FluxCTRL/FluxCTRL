@@ -1,8 +1,8 @@
 <?php
-namespace FluxCtrl\Controller\Feed;
+namespace FluxCtrl\App\Controller\Feed;
 
 use Cake\Event\Event;
-use FluxCtrl\Controller\CrudController;
+use FluxCtrl\App\Controller\CrudController;
 
 class ItemsController extends CrudController
 {

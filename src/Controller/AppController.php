@@ -1,8 +1,8 @@
 <?php
-namespace FluxCtrl\Controller;
+namespace FluxCtrl\App\Controller;
 
 use Cake\Controller\Controller;
-use FluxCtrl\Core\Flux;
+use FluxCtrl\App\Core\Flux;
 
 class AppController extends Controller
 {

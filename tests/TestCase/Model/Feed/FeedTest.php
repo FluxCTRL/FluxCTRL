@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Test\TestCase\Model\Feed;
+namespace FluxCtrl\App\Test\TestCase\Model\Feed;
 
 use Cake\TestSuite\TestCase;
 use FluxCtrl\Model\Feed\Feed;

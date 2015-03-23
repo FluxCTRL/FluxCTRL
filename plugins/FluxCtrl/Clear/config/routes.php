@@ -1,6 +1,6 @@
 <?php
 use Cake\Routing\Router;
-use FluxCtrl\Core\Flux;
+use FluxCtrl\App\Core\Flux;
 
 Router::scope('/', function ($routes) {
     /**

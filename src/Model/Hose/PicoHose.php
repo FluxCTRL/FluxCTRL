@@ -1,10 +1,10 @@
 <?php
-namespace FluxCtrl\Model\Hose;
+namespace FluxCtrl\App\Model\Hose;
 
 use Cake\Collection\Collection;
 use Cake\ORM\TableRegistry;
-use FluxCtrl\Datasource\HoseInterface;
-use FluxCtrl\Model\Entity\Feed;
+use FluxCtrl\App\Datasource\HoseInterface;
+use FluxCtrl\App\Model\Entity\Feed;
 use PicoFeed\Parser\Item;
 use PicoFeed\PicoFeedException;
 use PicoFeed\Reader\Reader;

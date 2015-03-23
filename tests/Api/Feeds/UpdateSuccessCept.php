@@ -1,8 +1,8 @@
 <?php
-$I = new ApiTester($scenario);
+$I = new FluxCtrl\App\Test\Api\ApiTester($scenario);
 $I->wantTo('update existing feed');
 
-$feed = call_user_func(new \FluxCtrl\Test\Factory\FeedFactory, 1);
+$feed = call_user_func(new \FluxCtrl\App\Test\Factory\FeedFactory, 1);
 
 $I->sendPUT('/api/' . $feed->id . '.json', ['title' => 'Foo']);
 

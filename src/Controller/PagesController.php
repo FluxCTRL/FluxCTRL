@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Controller;
+namespace FluxCtrl\App\Controller;
 
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;

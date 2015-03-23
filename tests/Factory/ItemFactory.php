@@ -1,11 +1,11 @@
 <?php
-namespace FluxCtrl\Test\Factory;
+namespace FluxCtrl\App\Test\Factory;
 
 use Gourmet\Muffin\TestSuite\TestFactory;
 
 class ItemFactory extends TestFactory
 {
-    public $feed_id = 'factory|FluxCtrl\Model\Entity\Feed';
+    public $feed_id = 'factory|FluxCtrl\App\Model\Entity\Feed';
     public $title = 'sentence|5';
     public $content = 'text';
     public $url = 'url';

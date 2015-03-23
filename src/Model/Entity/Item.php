@@ -1,8 +1,8 @@
 <?php
-namespace FluxCtrl\Model\Entity;
+namespace FluxCtrl\App\Model\Entity;
 
 use Cake\ORM\Entity;
-use FluxCtrl\Model\Entity\Traits\RtlTrait;
+use FluxCtrl\App\Model\Entity\Traits\RtlTrait;
 
 /**
  * Item Entity.

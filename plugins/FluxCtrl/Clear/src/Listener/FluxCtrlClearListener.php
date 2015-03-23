@@ -3,7 +3,7 @@ namespace FluxCtrl\Clear\Listener;
 
 use Cake\Event\Event;
 use Cake\Event\EventListenerInterface;
-use FluxCtrl\Core\Flux;
+use FluxCtrl\App\Core\Flux;
 
 class FluxCtrlClearListener implements EventListenerInterface
 {

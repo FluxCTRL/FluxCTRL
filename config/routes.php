@@ -1,7 +1,7 @@
 <?php
 use Cake\Core\Plugin;
 use Cake\Routing\Router;
-use FluxCtrl\Core\Flux;
+use FluxCtrl\App\Core\Flux;
 
 Router::defaultRouteClass('InflectedRoute');
 

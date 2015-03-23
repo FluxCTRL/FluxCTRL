@@ -1,12 +1,12 @@
 <?php
-namespace FluxCtrl\Model\Table;
+namespace FluxCtrl\App\Model\Table;
 
 use ArrayObject;
 use Cake\Event\Event;
 use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
-use FluxCtrl\Model\Entity\Feed;
+use FluxCtrl\App\Model\Entity\Feed;
 
 /**
  * Feeds Model

@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\TestSuite\Codeception;
+namespace FluxCtrl\App\TestSuite\Codeception;
 
 use Codeception\Module;
 use Codeception\TestCase as Test;

@@ -1,5 +1,5 @@
 <?php
-$I = new ApiTester($scenario);
+$I = new FluxCtrl\App\Test\Api\ApiTester($scenario);
 $I->wantTo('List all items');
 
 $I->sendGET('/api/items.json');

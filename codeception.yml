@@ -1,3 +1,4 @@
+namespace: FluxCtrl\App
 actor: Tester
 paths:
     tests: tests

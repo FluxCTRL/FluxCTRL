@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Model\Table;
+namespace FluxCtrl\App\Model\Table;
 
 use Cake\ORM\Query;
 use Cake\ORM\Table;

@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Test\TestCase;
+namespace FluxCtrl\App\Test\TestCase;
 
 use Cake\Routing\Router;
 use Cake\TestSuite\TestCase;

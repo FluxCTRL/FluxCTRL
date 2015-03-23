@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Test\TestCase\Model\Table;
+namespace FluxCtrl\App\Test\TestCase\Model\Table;
 
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
@@ -32,7 +32,7 @@ class FeedsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $className = 'FluxCtrl\Model\Table\FeedsTable';
+        $className = 'FluxCtrl\App\Model\Table\FeedsTable';
         $config = TableRegistry::exists('Feeds') ? [] : compact('className');
         $this->Feeds = TableRegistry::get('Feeds', $config);
     }

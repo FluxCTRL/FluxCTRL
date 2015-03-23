@@ -24,17 +24,17 @@
     },
     "autoload": {
         "psr-4": {
-            "FluxCtrl\\": "src",
+            "FluxCtrl\\App\\": "src",
             "FluxCtrl\\Clear\\": "plugins/FluxCtrl/Clear/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "FluxCtrl\\Test\\": "tests"
+            "FluxCtrl\\App\\Test\\": "tests"
         }
     },
     "scripts": {
-        "post-install-cmd": "FluxCtrl\\Console\\Installer::postInstall",
+        "post-install-cmd": "FluxCtrl\\App\\Console\\Installer::postInstall",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
     "minimum-stability": "dev",

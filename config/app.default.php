@@ -47,7 +47,7 @@ return [
      *   paths for plugins, view templates and locale files respectively.
      */
     'App' => [
-        'namespace' => 'FluxCtrl',
+        'namespace' => 'FluxCtrl\App',
         'encoding' => 'UTF-8',
         'base' => false,
         'dir' => 'src',

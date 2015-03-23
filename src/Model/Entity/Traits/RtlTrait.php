@@ -1,5 +1,5 @@
 <?php
-namespace FluxCtrl\Model\Entity\Traits;
+namespace FluxCtrl\App\Model\Entity\Traits;
 
 use PicoFeed\Parser\Parser;
 
