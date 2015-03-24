@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "51a3edec5a43b763130614dd2681d7c6",
+    "hash": "70c02ad197591fb2894298458c497b89",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "9a925348750cd86723d7ccd38f453180a028eeee"
+                "reference": "09eb23891dc8134830f4e39e01a3a39f82935e41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/9a925348750cd86723d7ccd38f453180a028eeee",
-                "reference": "9a925348750cd86723d7ccd38f453180a028eeee",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/09eb23891dc8134830f4e39e01a3a39f82935e41",
+                "reference": "09eb23891dc8134830f4e39e01a3a39f82935e41",
                 "shasum": ""
             },
             "require": {
@@ -173,7 +173,8 @@
                 "files": [
                     "src/Core/functions.php",
                     "src/Collection/functions.php",
-                    "src/I18n/functions.php"
+                    "src/I18n/functions.php",
+                    "src/Utility/bootstrap.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -191,7 +192,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-03-07 19:20:35"
+            "time": "2015-03-22 16:42:46"
         },
         {
             "name": "cakephp/migrations",
@@ -949,20 +950,20 @@
     "packages-dev": [
         {
             "name": "cakephp/bake",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "0adfe6f2004eb2c7f6c55a4af01bcea57aa1c933"
+                "reference": "ad86dbce53c16a8c8af4ee30fdaa4ff41a924778"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/0adfe6f2004eb2c7f6c55a4af01bcea57aa1c933",
-                "reference": "0adfe6f2004eb2c7f6c55a4af01bcea57aa1c933",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/ad86dbce53c16a8c8af4ee30fdaa4ff41a924778",
+                "reference": "ad86dbce53c16a8c8af4ee30fdaa4ff41a924778",
                 "shasum": ""
             },
             "require": {
-                "cakephp/cakephp": "3.0.x-dev",
+                "cakephp/cakephp": "~3.0",
                 "php": ">=5.4"
             },
             "require-dev": {
@@ -991,7 +992,7 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2015-03-05 06:45:14"
+            "time": "2015-03-22 18:09:12"
         },
         {
             "name": "cakephp/codeception",
@@ -1031,24 +1032,27 @@
         },
         {
             "name": "cakephp/debug_kit",
-            "version": "3.0.x-dev",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "1ff614286eb9d9c4c6066e76add0987ec22ca563"
+                "reference": "824c1610fe4a79f14f0a22b56de06241dfa49c37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/1ff614286eb9d9c4c6066e76add0987ec22ca563",
-                "reference": "1ff614286eb9d9c4c6066e76add0987ec22ca563",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/824c1610fe4a79f14f0a22b56de06241dfa49c37",
+                "reference": "824c1610fe4a79f14f0a22b56de06241dfa49c37",
                 "shasum": ""
             },
             "require": {
-                "cakephp/cakephp": "3.0.*-dev"
+                "cakephp/cakephp": "~3.0"
             },
             "require-dev": {
                 "cakephp/cakephp-codesniffer": "dev-master",
                 "phpunit/phpunit": "4.1.*"
+            },
+            "suggest": {
+                "ext-sqlite": "DebugKit needs to store panel data in a database. SQLite is simple and easy to use."
             },
             "type": "cakephp-plugin",
             "extra": {
@@ -1084,7 +1088,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2015-03-03 02:05:09"
+            "time": "2015-03-22 18:05:17"
         },
         {
             "name": "codeception/codeception",
@@ -2865,12 +2869,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cakephp/cakephp": 20,
         "cakephp/migrations": 20,
         "friendsofcake/crud": 20,
         "gourmet/knp-menu": 20,
-        "cakephp/debug_kit": 20,
-        "cakephp/bake": 20,
         "cakephp/codeception": 20,
         "gourmet/muffin": 20
     },
