@@ -28,6 +28,21 @@ class Item extends Entity
     ];
 
     /**
+     * Mark item as new.
+     *
+     * @return mixed
+     */
+    public function markAsNew()
+    {
+        if ($this->is_read === false || $this->dirty('is_read')) {
+            return;
+        }
+
+        $this->set('is_read', false);
+        return TableRegistry::get($this->source())->save($this);
+    }
+
+    /**
      * Mark item as read.
      *
      * @return mixed
