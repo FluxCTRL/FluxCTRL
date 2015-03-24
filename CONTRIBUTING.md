@@ -6,7 +6,7 @@ improved.
 
 ## Issues
 
-__Found a vulnerability? Please disclose responsibly by emailing FluxCTRL at Gmail.com.__
+__Found a vulnerability? Please disclose it responsibly by emailing FluxCTRL at Gmail.__
 
 The [issue tracker][issues] is the best way to submit [bug reports](#bug-reports) and [feature requests]
 (#feature-requests), but please respect these __golden__ rules:
@@ -22,15 +22,15 @@ extremely helpful - __thank you!__
 
 Before you submit a bug, please:
 
-- Make sure you are using the latest `master` or `dev` branch in the repository, maybe the issue has
-already been fixed. If not,
+- Make sure you are using the latest `master` branch in the repository, maybe the issue has already been
+fixed. If not,
 - Check if the issue has already been reported, and comment to let us know you are having the same
 problem. If not,
 - Isolate the problem to make sure that the code in the repository is _definitely_ responsible for the
 issue. A test case is optional but greatly encouraged.
 
-When reporting [issues], please include the output of `flux info`, along with a detailed description
-of what you were trying to do. Here are some general rules:
+When reporting [issues], please include a detailed description of what you were trying to do. Here are some
+general rules:
 
 - __Be specific.__ If you can do the same thing two different ways, state which one you used.
 - __Be verbose.__ Give more information rather than less.

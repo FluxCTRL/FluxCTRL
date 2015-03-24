@@ -75,7 +75,7 @@ By now, you should know about plugins and if not, scroll back up a little. Theme
 it's just another term to separate between the back-end type of stuff (API, shells, etc.) and front-end
 (web UI).
 
-## Help
+## Support
 
 For help, please __do not__ use the issue tracker. Instead, reach out to us via one of the official
 support channels:
