@@ -1,74 +1,118 @@
 # FluxCTRL
 
-Minimalistic information flux management tool, in other words, a [news
-aggregator][aggregator] on steroids.
-
-It's pronounced **_fluks kən trōl′_**.
+___[fluks kən trōl′]___ Minimalistic Aggregator on Steroids.
 
 ## About
 
-FluxCTRL came  out of a need to manage the constantly growing flux of information
-I have to deal with.
+FluxCTRL is a self-hosted universal aggregator that is easy to install and customize. At its core,
+it is a modular parser, backed by the SQL database engine of your choice and extendable via an
+event-driven API using [plugins](#plugins) and [themes](#themes).
 
-So, if you are like me and would like to centralize all your reading (i.e. blogs
-you follow, multiple twitter/github/stackoverflow/quora feeds) and social activity
-(i.e. commenting on blogs, replying on QA sites, RT, starring, etc.) or automate
-certain stuff like downloading the full content, filtering/tagging based on
-keywords, adding to your reading list any post tweeted by friends, etc; I suggest
-you give it a try.
+Have you ever wished you could customize your reader to automatically:
+
+* curate/share/bookmark/star items that have interested other people you trust,
+* aggregate non-standard data feeds like API results, HTML pages, etc.,
+
+or let you:
+
+* attach notes to selected items for future reference,
+* reply to reddit/stackoverflow/quora/github threads,
+* schedule tweets and other events?
+
+If you answered yes to one or more, or if you have other automation and feature ideas you can
+think of, then you might like FluxCTRL.
+
+__FluxCTRL is being actively developed and open for [contributions](#team) of all sorts.
+Although, in its current form, it could be used as a reader by just anyone; it still lacks
+documentation, a wider array of plugins and a couple important milestones before reaching 1.0.__
 
 ## Philosophy
 
-Early development's main focus will be on _simplicity_ and _extensibility_ without
-sacrificing _efficiency_.
+__Simplicity__ and __extensibility__ without sacrificing __efficiency__.
 
-* **Minimalistic.** Less is more.
-* **Liberatarian.** Freedom of choice.
-* **Powerful.** No time to waste.
+## Screenshots
+
+{@todo add screenshots}
+
+## Features
+
+- RESTful JSON API (core)
+- Popular hoses: Atom, Rss, Reddit, HackerNews, Github (core + plugin)
+- Minimalist web interface (theme)
+- Composer'd install
+- And [CakePHP 3][cakephp] goodies: ORM, caching, logging, etc.
+
+For upcoming features, please check the roadmap.
+
+## Requirements
+
+- PHP 5.5
+- Composer
+- RDMBS engine (SQLite, MySQL, PostgreSQL)
 
 ## Usage
 
-For now, only developer install:
-
 ```
-git clone git@github.com:jadb/FluxCTRL.git
-cd $_
-composer install --prefer-dist
+composer install -s dev --prefer-dist fluxctrl/fluxctrl
 ```
 
-I aim to have full unit, functional and acceptance test coverage using [Codepcetion]
-[codeception]. To run the test suite:
+For detailed installation steps and more, please check the [wiki].
 
-```
-vendor/bin/codecept build (only the 1st time)
-vendor/bin/codecept run
-```
+## Plugins
 
-## Roadmap
+Plugins are what makes FluxCTRL so powerful. If you are familiar with [CakePHP][cakephp]'s plugin
+and event system, then it won't be very different (probably a couple more built-in events that's
+all). If not, please start by checking CakePHP's [official documentation][cakebook].
 
-**0.1**
-- APIs: Feeds & Items [IN PROGRESS]
-- Formats: Atom & RSS
-- Themes: Clear [IN PROGRESS]
+A plugin should limit itself to doing one thing only (look at the [official plugins][FluxCTRL]). It
+could be altering the stream outputed by the reader, the JSON response structure, adding more keyboard
+shortcuts or anything else. You're only limited by available plugins and your imagination, if not, it's
+a bug and we'd like to hear about your use case.
 
-**0.2**
-- APIs: Settings
-- Actions: Favorites & Unread
-- Enhancers: XPath & Regex
+## Themes
 
-**0.3**
-- Plugins: Github & Twitter
+By now, you should know about plugins and if not, scroll back up a little. Themes are the same thing,
+it's just another term to separate between the back-end type of stuff (API, shells, etc.) and front-end
+(web UI).
 
-**0.4**
-- Plugins: Buffer
+## Help
 
-## Copyright / License
+For help, please __do not__ use the issue tracker. Instead, reach out to us via one of the official
+support channels:
+
+- [Google group](https://groups.google.com/forum/#!forum/fluxctrl)
+- [StackOverflow](http://stackoverflow.com/questions/tagged/FluxCTRL)
+- `#FluxCTRL` (irc.freenode.net)
+
+## Team
+
+Building great software requires team effort. For now, the core is a handful of [talented people]
+[authors] eager to grow into a mixed-gender, multi-disciplinary group of awesomeness crafters.
+
+Want to take part in the action? Maybe reporting a bug or hacking on FluxCTRL? Awesome! We have put
+together a [how-to contribute][contributing] document to get you started.
+
+Here are some of the things we currently need help with:
+
+* Code - obvious, no?
+* Design - logo, website, extra themes, etc.
+* Documentation - core and official plugins, etc.
+* Evangelism - tutorials, announcements, presentations, etc.
+* Review - existing code base, pull requests, suggestions, etc.
+* Support - StackOverflow, IRC, Github, etc.
+
+## License
 
 Copyright (c)2015 Jad Bitar.
 
-FluxCTRL is licensed under the MIT license. See [LICENSE](LICENSE) for more
-information.
+FluxCTRL is licensed under the MIT license. See [LICENSE] for more information.
 
-[aggregator]:http://en.wikipedia.org/wiki/News_aggregator
-[codeception]:http://codeception.com
-
+[cakephp]:http://cakephp.org
+[cakebook]:http://book.cakephp.org/3.0
+[feedly]:http://feedly.com
+[FluxCTRL]:https://github.com/FluxCTRL
+[authors]:https://github.com/FluxCTRL/FluxCTRL/blob/master/AUTHORS.md
+[contributing]:https://github.com/FluxCTRL/FluxCTRL/blob/master/CONTRIBUTING.md
+[LICENSE]:https://github.com/FluxCTRL/FluxCTRL/blob/master/LICENSE
+[ROADMAP]:https://github.com/FluxCTRL/FluxCTRL/blob/master/ROADMAP
+[wiki]:https://github.com/FluxCTRL/FluxCTRL/wiki
