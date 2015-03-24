@@ -5,7 +5,7 @@ $I->wantTo('delete an item');
 call_user_func(new \FluxCtrl\App\Test\Factory\FeedFactory(), 1);
 $item = call_user_func(new \FluxCtrl\App\Test\Factory\ItemFactory(), 1);
 
-$I->sendDELETE('/api/items/' . $item->id . '.json');
+$I->sendDELETE('/items/' . $item->id . '.json');
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();
 $I->seeResponseContainsJson(['success' => true, 'data' => []]);

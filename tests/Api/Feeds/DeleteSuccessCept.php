@@ -4,7 +4,7 @@ $I->wantTo('delete existing feed');
 
 $feed = call_user_func(new \FluxCtrl\App\Test\Factory\FeedFactory, 1);
 
-$I->sendDELETE('/api/' . $feed->id . '.json');
+$I->sendDELETE('/' . $feed->id . '.json');
 
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();

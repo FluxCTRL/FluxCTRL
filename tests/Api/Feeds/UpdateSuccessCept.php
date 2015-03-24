@@ -4,7 +4,7 @@ $I->wantTo('update existing feed');
 
 $feed = call_user_func(new \FluxCtrl\App\Test\Factory\FeedFactory, 1);
 
-$I->sendPUT('/api/' . $feed->id . '.json', ['title' => 'Foo']);
+$I->sendPUT('/' . $feed->id . '.json', ['title' => 'Foo']);
 
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();

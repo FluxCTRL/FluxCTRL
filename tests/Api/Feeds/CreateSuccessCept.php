@@ -2,7 +2,7 @@
 $I = new FluxCtrl\App\Test\Api\ApiTester($scenario);
 $I->wantTo('Subscribe to a new feed');
 
-$I->sendPOST('/api/feeds.json', [
+$I->sendPOST('/feeds.json', [
     'url' => 'http://feeds.feedburner.com/oatmealfeed',
 ]);
 

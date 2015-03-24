@@ -5,7 +5,7 @@ use FluxCtrl\App\Core\Flux;
 
 Router::defaultRouteClass('InflectedRoute');
 
-Router::scope('/api', function ($routes) {
+Router::scope('/', function ($routes) {
     $feedItems = ['controller' => 'Items', 'prefix' => 'feed'];
     $options = ['id' => Flux::ID, 'pass' => ['id']];
 
