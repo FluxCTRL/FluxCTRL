@@ -180,6 +180,7 @@ Request::addDetector('tablet', function ($request) {
  */
 
 Plugin::load('Migrations');
+Plugin::load('FluxCtrl/Kbd');
 
 /**
  * Theme is loaded separately from plugins. The `routes.php` and `bootstrap.php` are optional. To use

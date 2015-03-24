@@ -25,7 +25,8 @@
     "autoload": {
         "psr-4": {
             "FluxCtrl\\App\\": "src",
-            "FluxCtrl\\Clear\\": "plugins/FluxCtrl/Clear/src"
+            "FluxCtrl\\Clear\\": "plugins/FluxCtrl/Clear/src",
+            "FluxCtrl\\Kbd\\": "plugins/FluxCtrl/Kbd/src"
         }
     },
     "autoload-dev": {
