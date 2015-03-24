@@ -35,8 +35,8 @@
                             'plugin' => null,
                             'controller' => 'Items',
                             'action' => 'delete',
-                            $item->id]
-                        );
+                            'id' => $item->id
+                        ]);
                         ?>
                     </li>
                 </ul>

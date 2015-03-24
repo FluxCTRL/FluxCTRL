@@ -21,7 +21,7 @@
                         <?php
                         echo $this->Html->link(
                             __d('flux_ctrl', "Edit"),
-                            ['action' => 'edit', $feed->id]
+                            ['action' => 'edit', 'id' => $feed->id]
                         );
                         ?>
                     </li>
@@ -29,7 +29,7 @@
                         <?php
                         echo $this->Form->postLink(
                             __d('flux_ctrl', "Unsubscribe"),
-                            ['_name' => 'unsubscribe', $feed->id],
+                            ['_name' => 'unsubscribe', 'id' => $feed->id],
                             ['confirm' => __('flux_ctrl', "Unsubscribe from {0}", $feed->title)]
                         );
                         ?>

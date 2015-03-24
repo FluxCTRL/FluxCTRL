@@ -3,7 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $feed->id],
+                ['action' => 'delete', 'id' => $feed->id],
                 ['confirm' => __('Are you sure you want to delete # {0}?', $feed->id)]
             )
         ?></li>
