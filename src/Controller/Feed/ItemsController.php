@@ -32,4 +32,12 @@ class ItemsController extends CrudController
         });
         $this->Crud->execute();
     }
+
+    public function view()
+    {
+        $this->Crud->on('afterFind', function (Event $event) {
+            $event->subject()->entity->markAsRead();
+        });
+        $this->Crud->execute();
+    }
 }
