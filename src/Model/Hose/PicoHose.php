@@ -35,12 +35,12 @@ class PicoHose implements HoseInterface
 
         if ($feed->isNew()) {
             $data += [
-                'title' => $feed->title,
-                'description' => $feed->description,
-                'url' => $feed->feed_url,
-                'website' => $feed->site_url,
-                'checked' => $feed->date,
-                'lang' => $feed->language,
+                'title' => $raw->title,
+                'description' => $raw->description,
+                'url' => $raw->feed_url,
+                'website' => $raw->site_url,
+                'checked' => $raw->date,
+                'lang' => $raw->language,
             ];
             $options += ['fieldList' => array_keys($data)];
         }
