@@ -18,7 +18,7 @@ mediaType: application/json
               {
                 "data": [
                   {
-                    "id": "1A0iEVP",
+                    "id": "1",
                     "title": "The Oatmeal",
                     "uri": "http://feeds.feedburner.com/oatmealfeed",
                     "website": "http://theoatmeal.com",
@@ -26,7 +26,7 @@ mediaType: application/json
                     "checked": "2015-03-01T00:00:00.000Z"
                   },
                   {
-                    "id": "YBhip",
+                    "id": "2",
                     "title": "xkcd",
                     "uri": "http://xkcd.com/rss.xml",
                     "website": "http://xkcd.com",
@@ -73,7 +73,7 @@ mediaType: application/json
             example: |
               {
                 "data": {
-                  "id": "1A0iEVP"
+                  "id": "1"
                 },
                 "success": true
               }
@@ -90,7 +90,7 @@ mediaType: application/json
       id:
         description: Specific feed ID
         type: string
-        pattern: ^[a-zA-Z0-9]+$
+        pattern: ^[0-9]+$
         required: true
     get:
         description: Get a list of items for a specific feed
@@ -135,7 +135,7 @@ mediaType: application/json
                 example: |
                   {
                     "feed": {
-                      "id": 1
+                      "id": "1"
                     }
                   }
           400:
@@ -191,7 +191,7 @@ mediaType: application/json
               example: |
                 {
                   "feed": {
-                    "id": "1A0iEVP",
+                    "id": "1",
                     "title": "The Oatmeal Comics",
                     "uri": "http://feeds.feedburner.com/oatmealfeed",
                     "website": "http://theoatmeal.com",
@@ -246,16 +246,16 @@ mediaType: application/json
               {
                 "items": [
                   {
-                    "id": "9UaR",
-                    "feed_id": "1A0iEVP",
+                    "id": "1",
+                    "feed_id": "1",
                     "uri": "http://theoatmeal.com/blog/jibbers_crabst",
                     "content": "{\"body\":\"<p>I gave a talk at <a href=\\\\\\\"https:\\\/\\\/www.youtube.com\\\/watch?v=ZZ_BtZ-5O60\\\\\\\">BAHFest 2014<\\\/a> where I presented an alternate theory. Praise Jibbers.<\\\/p>\"}"}",
                     "is_read": false,
                     "published": "2015-03-01"
                   },
                   {
-                    "id": "Yd7FD",
-                    "feed_id": "1A0iEVP",
+                    "id": "2",
+                    "feed_id": "1",
                     "uri": "http://theoatmeal.com/comics/email_monster",
                     "content": "",
                     "is_read": false,
@@ -268,7 +268,7 @@ mediaType: application/json
       id:
         description: Specific item ID
         type: string
-        pattern: ^[a-zA-Z0-9]+$
+        pattern: ^[0-9]+$
     get:
       description: Retrieve a specific item
       responses:
@@ -279,15 +279,15 @@ mediaType: application/json
               example: |
                 {
                   "item": {
-                    "id": "9UaR",
-                    "feed_id": "1A0iEVP",
+                    "id": "1",
+                    "feed_id": "1",
                     "uri": "http://theoatmeal.com/blog/jibbers_crabst",
                     "content": "<p>I gave a talk at <a href=\"https://www.youtube.com/watch?v=ZZ_BtZ-5O60\">BAHFest 2014</a> where I presented an alternate theory. Praise Jibbers.</p>",
                     "is_read": false,
                     "published": "2015-03-01"
                   },
                   "feed": {
-                    "id": "1A0iEVP",
+                    "id": "1",
                     "title": "The Oatmeal",
                     "uri": "http://feeds.feedburner.com/oatmealfeed",
                     "website": "http://theoatmeal.com",
@@ -322,7 +322,7 @@ mediaType: application/json
               example: |
                 {
                   "feed": {
-                    "id": "9UaR",
+                    "id": "1",
                     "is_read": true
                   },
                   "success": true

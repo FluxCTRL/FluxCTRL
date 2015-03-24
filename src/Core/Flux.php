@@ -8,7 +8,6 @@ use Cake\Event\EventManager;
 
 class Flux
 {
-    const ID = '[a-zA-Z0-9]+';
 
     /**
      * Scans all plugins to attach the FluxCtrl plugins' available listeners.
