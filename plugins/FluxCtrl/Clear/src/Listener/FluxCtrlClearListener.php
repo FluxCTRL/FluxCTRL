@@ -11,7 +11,6 @@ class FluxCtrlClearListener implements EventListenerInterface
     {
         return [
             'Controller.initialize' => 'controllerInitialize',
-            'Controller.beforeRender' => 'controllerBeforeRender',
             'View.beforeRender' => 'viewBeforeRender',
         ];
     }
@@ -22,24 +21,6 @@ class FluxCtrlClearListener implements EventListenerInterface
 
         $controller->loadComponent('Flash');
         $controller->theme = Flux::read('theme');
-    }
-
-    public function controllerBeforeRender(Event $event)
-    {
-        $subtitles = [
-            'Feeds' => [
-                'add' => __d('flux_ctrl', "New subscription"),
-                'index' => __d('flux_ctrl', "Subscriptions"),
-            ],
-            'Items' => [
-                'index' => __d('flux_ctrl', "Unread"),
-            ]
-        ];
-
-        $controller = $event->subject();
-        $request = $controller->request;
-
-        $controller->set('fc_subtitle', $subtitles[$request->param('controller')][$request->param('action')]);
     }
 
     public function viewBeforeRender(Event $event)
