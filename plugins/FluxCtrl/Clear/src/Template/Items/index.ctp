@@ -1,7 +1,13 @@
 <section>
     <?php foreach ($items as $item) : ?>
     <article>
-        <?= $this->Html->tag('h3', $item->title) ?>
+        <?php
+        echo $this->Html->link(
+            $this->Html->tag('h3', $item->title),
+            ['_name' => 'read', 'id' => $item->id],
+            ['escape' => false]
+        );
+        ?>
         <summary>
             <?php
             echo $this->Text->truncate(strip_tags($item->content), 300, [
