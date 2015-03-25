@@ -2,9 +2,8 @@
 namespace FluxCtrl\App\Controller\Feed;
 
 use Cake\Event\Event;
-use FluxCtrl\App\Controller\CrudController;
 
-class ItemsController extends CrudController
+class ItemsController extends \FluxCtrl\App\Controller\ItemsController
 {
     /**
      * Use the same views as `FluxCtrl\Controller\ItemsController`.
@@ -29,14 +28,6 @@ class ItemsController extends CrudController
             $event->subject()->object = $this->Items->find('unread')
                 ->contain('Feeds')
                 ->where([$this->Items->alias() . '.feed_id' => $this->request->param('id')]);
-        });
-        $this->Crud->execute();
-    }
-
-    public function view()
-    {
-        $this->Crud->on('afterFind', function (Event $event) {
-            $event->subject()->entity->markAsRead();
         });
         $this->Crud->execute();
     }
