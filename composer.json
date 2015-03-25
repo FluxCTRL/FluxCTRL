@@ -2,17 +2,34 @@
     "name": "fluxctrl/fluxctrl",
     "description": "Minimalistic information flux management tool.",
     "homepage": "http://fluxctrl.io",
+    "keywords": [
+        "reader", "feed", "aggregator",
+        "atom", "rss"
+    ],
     "type": "project",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "FluxCTRL Community",
+            "homepage": "https://github.com/FluxCTRL/FluxCTRL/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/FluxCTRL/FluxCTRL/issues",
+        "forum": "http://stackoverflow.com/tags/FluxCTRL",
+        "irc": "irc://irc.freenode.org/FluxCTRL",
+        "source": "https://github.com/FluxCTRL/FluxCTRL"
+    },
     "require": {
         "php": ">=5.4.16",
         "cakephp/cakephp": "~3.0",
         "mobiledetect/mobiledetectlib": "2.*",
-        "cakephp/migrations": "dev-master",
+        "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
         "friendsofcake/crud": "dev-cake3",
         "fguillot/picofeed": "~0.1.2",
-        "gourmet/knp-menu": "dev-master"
+        "fluxctrl/clear": "dev-master",
+        "fluxctrl/kbd": "dev-master"
     },
     "require-dev": {
         "d11wtq/boris": "1.0.*",
@@ -24,9 +41,7 @@
     },
     "autoload": {
         "psr-4": {
-            "FluxCtrl\\App\\": "src",
-            "FluxCtrl\\Clear\\": "plugins/FluxCtrl/Clear/src",
-            "FluxCtrl\\Kbd\\": "plugins/FluxCtrl/Kbd/src"
+            "FluxCtrl\\App\\": "src"
         }
     },
     "autoload-dev": {

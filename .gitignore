@@ -3,3 +3,4 @@
 /tmp/*
 /logs/*
 tests/**/*Tester.php
+/composer.lock
