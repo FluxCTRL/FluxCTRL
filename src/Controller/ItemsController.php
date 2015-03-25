@@ -35,6 +35,9 @@ class ItemsController extends CrudController
 
     public function view()
     {
+        $this->Crud->on('beforeFind', function (Event $event) {
+            $event->subject()->query->contain('Feeds');
+        });
         $this->Crud->on('afterFind', function (Event $event) {
             $event->subject()->entity->markAsRead();
         });
