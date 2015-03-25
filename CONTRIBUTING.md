@@ -57,7 +57,7 @@ typos!
 For all non-trivial improvements, please include a detailed description and make sure the changes remain
 focused in scope.
 
-For more ambitious contributions, we recommend discussing your plans in an [issue] very early in the
+For more ambitious contributions, we recommend discussing your plans in an [issue][issues] very early in the
 process to avoid working on something someone else is doing already. This also gives the team and
 community a chance to show interest, raise concerns and ultimately guide you in the right direction.
 
