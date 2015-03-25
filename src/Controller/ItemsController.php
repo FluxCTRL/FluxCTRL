@@ -31,7 +31,7 @@ class ItemsController extends CrudController
         $this->Crud->on('beforePaginate', function (Event $event) {
             $event->subject()->object = $this->Items->find('unread')->contain('Feeds');
         });
-        $this->Crud->execute();
+        return $this->Crud->execute();
     }
 
     public function view()
@@ -59,6 +59,6 @@ class ItemsController extends CrudController
             $this->set(compact('links'));
             $entity->markAsRead();
         });
-        $this->Crud->execute();
+        return $this->Crud->execute();
     }
 }

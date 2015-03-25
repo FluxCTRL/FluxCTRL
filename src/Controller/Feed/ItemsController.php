@@ -29,6 +29,6 @@ class ItemsController extends \FluxCtrl\App\Controller\ItemsController
                 ->contain('Feeds')
                 ->where([$this->Items->alias() . '.feed_id' => $this->request->param('id')]);
         });
-        $this->Crud->execute();
+        return $this->Crud->execute();
     }
 }
