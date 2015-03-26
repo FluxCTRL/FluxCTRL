@@ -47,7 +47,7 @@ class ItemsTable extends Table
 
         $column = $this->aliasField($this->primaryKey());
 
-        $query->select(['id' => 'MAX(id)'])->where(['id <' => $options['id']]);
+        $query->select([$column => "MAX($column)"])->where(["$column <" => $options['id']]);
         return $query;
     }
 
@@ -67,7 +67,7 @@ class ItemsTable extends Table
 
         $column = $this->aliasField($this->primaryKey());
 
-        $query->select(['id' => 'MIN(id)'])->where(['id >' => $options['id']]);
+        $query->select([$column => "MIN($column)"])->where(["$column >" => $options['id']]);
         return $query;
     }
 
