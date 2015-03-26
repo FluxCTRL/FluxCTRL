@@ -45,7 +45,7 @@ class ItemsTable extends Table
             throw new InvalidArgumentException("Missing the current item's ID");
         }
 
-        $column = implode('.', [$this->alias(), $this->primaryKey()]);
+        $column = $this->aliasField($this->primaryKey());
 
         $query->select(['id' => 'MAX(id)'])->where(['id <' => $options['id']]);
         return $query;
@@ -65,7 +65,7 @@ class ItemsTable extends Table
             throw new InvalidArgumentException("Missing the current item's ID");
         }
 
-        $column = implode('.', [$this->alias(), $this->primaryKey()]);
+        $column = $this->aliasField($this->primaryKey());
 
         $query->select(['id' => 'MIN(id)'])->where(['id >' => $options['id']]);
         return $query;
@@ -81,10 +81,10 @@ class ItemsTable extends Table
     public function findUnread(Query $query, array $options)
     {
         $query->where([
-                $this->alias() . '.is_read' => false,
+                $this->aliasField('is_read') => false,
             ])
             ->order([
-                $this->alias() . '.published' => 'DESC',
+                $this->aliasField('published') => 'DESC',
             ]);
         return $query;
     }
