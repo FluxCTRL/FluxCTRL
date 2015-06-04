@@ -8,10 +8,15 @@ class AppController extends Controller
 {
 
     /**
-     * {@inheritdoc}
+     * Initialization hook method.
+     *
+     * Use this method to add common initialization code like loading components.
+     *
+     * @return void
      */
     public function initialize()
     {
+        parent::initialize();
         $this->_setupListeners();
         $this->_setupPaginator();
         $this->_setupRequestHandler();
